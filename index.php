@@ -1,69 +1,91 @@
 <?php
-require __DIR__ . '/class.php';
-$jsonarchivio = file_get_contents('./db.json');
-$archivio = json_decode($jsonarchivio, true);
+require './models/movie.php';
+require './instances/scream_VI.php';
+require './instances/requiem_for_a_dream.php';
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP OOP 1</title>
+    <title>PHP-OOP-1</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <?php
-    for ($i = 0; $i < count($archivio); $i++) {
-        $titolo = $archivio[$i]['title'];
-        $genere = $archivio[$i]['genre'];
-        $produzione = $archivio[$i]['production'];
-        $durata = $archivio[$i]['duration'];
-        $statuettaoro = $archivio[$i]['oscar'];
-        $globo = $archivio[$i]['goldenGlobes'];
-        $movie[$i] = new Movie($titolo, $produzione, $durata, $genere, $statuettaoro, $globo)
-    ?>
-        <ul>
-            <li>
-                <?php
-                echo $titolo;
-                ?>
-            </li>
-            <li>
-                <?php
-                echo implode(', ' , $genere);
-                ?>
-            </li>
-            <li>
-                <?php
-                echo $produzione;
-                ?>
-            </li>
-            <li>
-                <?php
-                echo $durata;
-                ?>
-            </li>
-            <li>
-                <?php
-                echo $statuettaoro;
-                ?>
-            </li>
-            <li>
-                <?php
-                echo $globo;
-                ?>
-            </li>
-            <li>
-                <?php
-                echo $movie[$i]->setPrizes($statuettaoro, $globo);
-                ?>
-            </li>
+    <header>
+        <div class="container">
+            <h1>PHP OOP 1</h1>
+        </div>
+    </header>
 
-        </ul>
-    <?php
-    }
-    ?>
+    <main>
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Original language</th>
+                        <th scope="col">Execution time</th>
+                        <th scope="col">Producer</th>
+                        <th scope="col">Country of origin</th>
+                        <th scope="col">Genres</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <?php echo $scream_VI->get_title() ?>
+                        </td>
+                        <td>
+                            <?php echo $scream_VI->get_original_language() ?>
+                        </td>
+                        <td>
+                            <?php echo $scream_VI->get_execution_time() ?>
+                        </td>
+                        <td>
+                            <?php echo $scream_VI->get_producer() ?>
+                        </td>
+                        <td>
+                            <?php echo $scream_VI->get_country_of_origin() ?>
+                        </td>
+                        <td>
+                            <?php echo $scream_VI->get_genres() ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <?php echo $requiem_for_a_dream->get_title() ?>
+                        </td>
+                        <td>
+                            <?php echo $requiem_for_a_dream->get_original_language() ?>
+                        </td>
+                        <td>
+                            <?php echo $requiem_for_a_dream->get_execution_time() ?>
+                        </td>
+                        <td>
+                            <?php echo $requiem_for_a_dream->get_producer() ?>
+                        </td>
+                        <td>
+                            <?php echo $requiem_for_a_dream->get_country_of_origin() ?>
+                        </td>
+                        <td>
+                            <?php echo $requiem_for_a_dream->get_genres() ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript" src="./javascript/scripts.js"></script>
 </body>
 
 </html>
