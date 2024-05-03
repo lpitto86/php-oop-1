@@ -1,91 +1,11 @@
 <?php
-require './models/movie.php';
-require './instances/scream_VI.php';
-require './instances/requiem_for_a_dream.php';
+    require __DIR__.'/models/movie.php';
+    $movie1 = new Movie(0);
+    var_dump($movie1);
+    $movie2 = new Movie(1);
+    var_dump($movie2);
+    $movie3 = new Movie(2);
+    var_dump($movie3);
+    $movie4 = new Movie(3);
+    var_dump($movie4);
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP-OOP-1</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-
-<body>
-    <header>
-        <div class="container">
-            <h1>PHP OOP 1</h1>
-        </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Original language</th>
-                        <th scope="col">Execution time</th>
-                        <th scope="col">Producer</th>
-                        <th scope="col">Country of origin</th>
-                        <th scope="col">Genres</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <?php echo $scream_VI->get_title() ?>
-                        </td>
-                        <td>
-                            <?php echo $scream_VI->get_original_language() ?>
-                        </td>
-                        <td>
-                            <?php echo $scream_VI->get_execution_time() ?>
-                        </td>
-                        <td>
-                            <?php echo $scream_VI->get_producer() ?>
-                        </td>
-                        <td>
-                            <?php echo $scream_VI->get_country_of_origin() ?>
-                        </td>
-                        <td>
-                            <?php echo $scream_VI->get_genres() ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <?php echo $requiem_for_a_dream->get_title() ?>
-                        </td>
-                        <td>
-                            <?php echo $requiem_for_a_dream->get_original_language() ?>
-                        </td>
-                        <td>
-                            <?php echo $requiem_for_a_dream->get_execution_time() ?>
-                        </td>
-                        <td>
-                            <?php echo $requiem_for_a_dream->get_producer() ?>
-                        </td>
-                        <td>
-                            <?php echo $requiem_for_a_dream->get_country_of_origin() ?>
-                        </td>
-                        <td>
-                            <?php echo $requiem_for_a_dream->get_genres() ?>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </main>
-
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script type="text/javascript" src="./javascript/scripts.js"></script>
-</body>
-
-</html>
